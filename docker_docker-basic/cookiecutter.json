@@ -14,7 +14,7 @@
         "Relative",
         "Absolute"
     ],
-    "package_dist_dir": "../../../../package/dist",
+    "package_dist_dir": "../../package/dist",
     "docker_image": "python:3.8-slim",
     "docker_run": "pip install --no-cache-dir -r requirements.txt",
     "docker_port": "5000",
