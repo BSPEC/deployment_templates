@@ -6,15 +6,15 @@
     "project_short_description": "A short description of the project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') }}",
     "version": "0.0.1",
-    "copy_from_package_dist": [
+    "copy_from_platform_dist": [
         "YES",
         "NO"
     ],
-    "package_dist_dir_type": [
+    "platform_dist_dir_type": [
         "Relative",
         "Absolute"
     ],
-    "package_dist_dir": "../../package/dist",
+    "platform_dist_dir": "../../platform/dist",
     "docker_image": "python:3.8-slim",
     "docker_run": "pip install --no-cache-dir -r requirements.txt",
     "docker_port": "5000",
