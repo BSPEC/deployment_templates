@@ -1,0 +1,57 @@
+{
+    "project_name": "Project_name",
+    "vendor": "Company_name",
+    "developer_name": "Developer_name",
+    "developer_email": "{{cookiecutter.developer_name.strip().replace(' ', '.')}}@{{cookiecutter.vendor.strip().replace(' ', '.')}}.com",
+    "project_short_description": "A short description of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') }}",
+    "version": "0.0.1",
+    "copy_from_package_dist": [
+        "YES",
+        "NO"
+    ],
+    "package_dist_dir_type": [
+        "Relative",
+        "Absolute"
+    ],
+    "package_dist_dir": "../../package/dist",
+    "desktop_entrypoint": "run_desktop.py",
+    "desktop_icon_ico": "./dist/app/static/images/icon.ico",
+    "desktop_onefile": [
+        "YES",
+        "NO"
+    ],
+    "desktop_noconsole": [
+        "YES",
+        "NO"
+    ],
+    "desktop_windowed": [
+        "YES",
+        "NO"
+    ],
+    "desktop_noconfirm": [
+        "YES",
+        "NO"
+    ],
+    "desktop_clean": [
+        "YES",
+        "NO"
+    ],
+    "desktop_add_data_points": {
+        "add_data": [
+            "app;app"
+        ]
+    },
+    "desktop_hidden_imports": {
+        "hidden_import": [
+            "engineio.async_drivers"
+        ]
+    },
+    "desktop_copy_files_and_folders_to_local_foler": {
+        "files_or_folders": [
+            "config.py",
+            "databases"
+        ]
+    },
+    "_copy_without_render": []
+}
