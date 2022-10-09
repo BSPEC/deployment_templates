@@ -10,8 +10,8 @@ workdir = os.getcwd()
 name = "{{cookiecutter.project_name}}"
 key = secrets.token_urlsafe(256)
 devdir = os.getcwd()
-distdir = os.path.join(devdir, "./desktop_windows/dist",name)
-builddir = os.path.join(devdir, "./desktop_windows/build")
+distdir = os.path.join(devdir, "./desktop_lunix/dist",name)
+builddir = os.path.join(devdir, "./desktop_lunix/build")
 
 # call pyinstaller directly
 PyInstaller.__main__.run([

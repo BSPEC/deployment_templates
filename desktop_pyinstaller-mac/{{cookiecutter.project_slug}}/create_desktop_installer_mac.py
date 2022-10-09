@@ -10,15 +10,14 @@ workdir = os.getcwd()
 name = "{{cookiecutter.project_name}}"
 key = secrets.token_urlsafe(256)
 devdir = os.getcwd()
-distdir = os.path.join(devdir, "./desktop_windows/dist",name)
-builddir = os.path.join(devdir, "./desktop_windows/build")
+distdir = os.path.join(devdir, "./desktop_mac/dist",name)
+builddir = os.path.join(devdir, "./desktop_mac/build")
 
 # call pyinstaller directly
 PyInstaller.__main__.run([
     '{{ cookiecutter.desktop_entrypoint }}',
     '--distpath', distdir,
     '--workpath', builddir,
-    {% if cookiecutter.desktop_onefile == 'YES' %}'--onefile',{% endif %}
     {% if cookiecutter.desktop_noconsole == 'YES' %}'--noconsole',{% endif %}
     {% if cookiecutter.desktop_windowed == 'YES' %}'--windowed',{% endif %}
     {% if cookiecutter.desktop_noconfirm == 'YES' %}'--noconfirm',{% endif %}
@@ -30,7 +29,7 @@ PyInstaller.__main__.run([
     {%- for hidden_import in cookiecutter.desktop_hidden_imports['hidden_import'] %}
     '--hidden-import', '{{hidden_import}}',
     {% endfor %}
-    '--icon', '{{ cookiecutter.desktop_icon_ico }}',
+    '--icon', '{{ cookiecutter.desktop_icon_icns }}',
     '--key', key
     '--name', name,
     ])

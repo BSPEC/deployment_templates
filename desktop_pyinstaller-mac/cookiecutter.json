@@ -12,11 +12,7 @@
         "NO"
     ],
     "desktop_entrypoint": "run_desktop.py",
-    "desktop_icon_ico": "./dist/app/static/images/icon.ico",
-    "desktop_onefile": [
-        "YES",
-        "NO"
-    ],
+    "desktop_icon_icns": "./dist/app/static/images/icon.icns",
     "desktop_noconsole": [
         "YES",
         "NO"
