@@ -1,7 +1,7 @@
 {
     "project_name": "Project_name",
     "project_short_description": "A short description of the project",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') }}",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') | regex_replace('\W+', '') }}",
     "package_dist_dir_type": [
         "Relative",
         "Absolute"
@@ -45,5 +45,8 @@
             "dist/databases"
         ]
     },
-    "_copy_without_render": []
+    "_copy_without_render": [],
+    "_extensions": [
+        "jinja2_ansible_filters.AnsibleCoreFiltersExtension"
+    ]
 }

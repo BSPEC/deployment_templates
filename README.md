@@ -8,6 +8,7 @@ Each template is a `cookiecutter` template that is intended to be used with a `c
 Install `cookiecutter` command line: 
 ```shell
 pip install cookiecutter
+pip install jinja2-ansible-filters
 
 ```
 

@@ -4,7 +4,7 @@
     "developer_name": "Developer_name",
     "developer_email": "{{cookiecutter.developer_name.strip().replace(' ', '.')}}@{{cookiecutter.vendor.strip().replace(' ', '.')}}.com",
     "project_short_description": "A short description of the project",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') }}",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') | regex_replace('\W+', '') }}",
     "version": "0.0.1",
     "copy_from_package_dist": [
         "YES",
@@ -28,5 +28,8 @@
             "run.py"
         ]
     },
-    "_copy_without_render": []
+    "_copy_without_render": [],
+    "_extensions": [
+        "jinja2_ansible_filters.AnsibleCoreFiltersExtension"
+    ]
 }
