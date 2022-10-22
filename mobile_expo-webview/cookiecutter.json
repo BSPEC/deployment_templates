@@ -1,0 +1,26 @@
+{
+    "project_name": "Project_name",
+    "background_color": "#ffffff",
+    "primary_color": "#ffffff",
+    "developer_name": "Developer_name",
+    "developer_email": "{{cookiecutter.developer_name.strip().replace(' ', '.')}}@{{cookiecutter.vendor.strip().replace(' ', '.')}}.com",
+    "project_short_description": "A short description of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') }}",
+    "version": "0.0.1",
+    "copy_from_package_dist": [
+        "YES",
+        "NO"
+    ],
+    "package_dist_dir_type": [
+        "Relative",
+        "Absolute"
+    ],
+    "package_dist_dir": "../../package/dist",
+    "server_base_url": "https://github.com/BSPEC/BSPEC",
+    "supports_tablet": [
+        true,
+        false
+    ],
+    "docker_port": "5000",
+    "_copy_without_render": []
+}

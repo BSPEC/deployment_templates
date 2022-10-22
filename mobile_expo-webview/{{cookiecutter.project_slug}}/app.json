@@ -1,0 +1,51 @@
+{
+  "server_base_url": "{{ cookiecutter.server_base_url }}",
+  "expo": {
+    "name": "{{ cookiecutter.project_name }}",
+    "slug": "{{ cookiecutter.project_slug }}",
+    "version": "{{ cookiecutter.version }}",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "primaryColor": "{{ cookiecutter.primary_color }}",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "{{ cookiecutter.background_color }}"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*",
+      "assets/images/*"
+    ],
+    "ios": {
+      "supportsTablet": {
+        { cookiecutter.supports_tablet
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "{{ cookiecutter.background_color }}"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/adaptive-icon.png",
+          "color": "{{ cookiecutter.background_color }}",
+          "sounds": [
+            "./assets/notification_alert.mp3"
+          ],
+          "mode": "production"
+        }
+      ]
+    ]
+  }
+}
