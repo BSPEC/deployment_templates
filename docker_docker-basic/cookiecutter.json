@@ -16,8 +16,14 @@
     ],
     "package_dist_dir": "../../package/dist",
     "docker_image": "python:3.8-slim",
-    "docker_run": "pip install --no-cache-dir -r requirements.txt",
     "docker_port": "5000",
+    "docker_pre_copy_dependencies": {
+        "dependencies": {
+            "FreeTDS": "# install FreeTDS and dependencies \nRUN apt-get update \\ \n&& apt-get install unixodbc -y \\ \n&& apt-get install unixodbc-dev -y \\ \n&& apt-get install freetds-dev -y \\ \n&& apt-get install freetds-bin -y \\ \n&& apt-get install tdsodbc -y \\ \n&& apt-get install --reinstall build-essential -y",
+            "ocbcinst.ini": "RUN echo \"[FreeTDS]\\n\\ \nDescription = FreeTDS unixODBC Driver\\n\\ Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so\\n\\ \nSetup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so\" >> /etc/odbcinst.ini",
+            "requirements.txt": "# We copy just the requirements.txt first to leverage Docker cache \nCOPY ./requirements.txt ./requirements.txt \nRUN pip install --no-cache-dir -r requirements.txt"
+        }
+    },
     "docker_entrypoint": {
         "entrypoint": [
             "python3"
