@@ -24,12 +24,10 @@ PyInstaller.__main__.run([
     {% if cookiecutter.desktop_noconfirm == 'YES' %}'--noconfirm',{% endif %}
     {% if cookiecutter.desktop_clean == 'YES' %}'--clean',{% endif %}
     {%- for data in cookiecutter.desktop_add_data_points['add_data'] %}
-    '--add-data', '{{data}}',
-    {% endfor %}
+    '--add-data', '{{data}}',{% endfor %}
     '--additional-hooks-dir', 'hooks',
     {%- for hidden_import in cookiecutter.desktop_hidden_imports['hidden_import'] %}
-    '--hidden-import', '{{hidden_import}}',
-    {% endfor %}
+    '--hidden-import', '{{hidden_import}}',{% endfor %}
     '--icon', '{{ cookiecutter.desktop_icon_ico }}',
     '--key', key
     '--name', name,

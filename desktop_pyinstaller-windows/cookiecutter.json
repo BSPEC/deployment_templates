@@ -2,15 +2,15 @@
     "project_name": "Project_name",
     "project_short_description": "A short description of the project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') | regex_replace('\\W+', '') }}",
+    "copy_from_package_dist": [
+        "YES",
+        "NO"
+    ],
     "package_dist_dir_type": [
         "Relative",
         "Absolute"
     ],
     "package_dist_dir": "../../package/dist",
-    "copy_from_package_dist": [
-        "YES",
-        "NO"
-    ],
     "desktop_entrypoint": "run_desktop.py",
     "desktop_icon_ico": "./dist/app/static/images/icon.ico",
     "desktop_onefile": [
