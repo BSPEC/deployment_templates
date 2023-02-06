@@ -3,6 +3,9 @@ Deployment Templates for multiple platforms and strategies per platform. Each pl
 
 Each template is a `cookiecutter` template that is intended to be used with a `cookiecutter directory` parameter allowing you to create multiple deployment platforms.
 
+## Notes:
+This is part of the natural progression from the Flask-BDA project found here: [https://github.com/RyanJulyan/Flask-BDA](https://github.com/RyanJulyan/Flask-BDA) and should be considered it's successor.
+
 ## Requirements
 ------------
 Install `cookiecutter` command line: 
