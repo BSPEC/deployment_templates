@@ -1,6 +1,7 @@
 module "ec2_instance" {
   source = "./module_ec2"
 
+  region              = var.region
   instance_type       = var.instance_type
   ami                 = var.ami
   vpc_security_group  = var.vpc_security_group

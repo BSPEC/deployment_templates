@@ -1,19 +1,15 @@
 provider "aws" {
   version = "~> 2.0"
+  region  = var.region
 }
 
 resource "aws_dynamodb_table" "table" {
   name           = var.table_name
   billing_mode   = var.billing_mode
-  read_capacity  = 5
-  write_capacity = 5
+  read_capacity  = var.read_capacity
+  write_capacity = var.write_capacity
 
-  attribute = [
-    {
-      name = "id"
-      type = "S"
-    },
-  ]
+  attribute = var.attribute
 
   key_schema = [
     {

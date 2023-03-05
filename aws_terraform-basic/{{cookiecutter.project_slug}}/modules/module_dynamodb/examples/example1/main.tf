@@ -1,5 +1,6 @@
-module "s3" {
-  source = "./module_s3"
+module "dynamodb" {
+  source = "./module_dynamodb"
 
-  bucket_name = var.bucket_name
+  region     = var.region
+  table_name = var.table_name
 }

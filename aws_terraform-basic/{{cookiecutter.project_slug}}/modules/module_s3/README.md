@@ -11,6 +11,7 @@ To use this module in your Terraform configuration, add the following code:
 module "s3" {
   source = "./module_s3"
 
+  region      = var.region
   bucket_name = var.bucket_name
 }
 
@@ -20,6 +21,7 @@ Replace the values of the variables with your own values, and make sure to set u
 
 # Inputs
 The following inputs are required:
+`region`: The AWS region to use.
 `bucket_name`: Name of the S3 bucket.
 
 ## Outputs

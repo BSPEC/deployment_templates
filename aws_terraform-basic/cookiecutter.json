@@ -1,0 +1,73 @@
+{
+    "project_name": "Project_name",
+    "vendor": "Company_name",
+    "developer_name": "Developer_name",
+    "developer_email": "{{cookiecutter.developer_name.strip().replace(' ', '.')}}@{{cookiecutter.vendor.strip().replace(' ', '.')}}.com",
+    "project_short_description": "A short description of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('cookiecutter', '').strip().replace(' ', '_') | regex_replace('\\W+', '') }}",
+    "version": "0.0.1",
+    "copy_from_package_dist": [
+        "YES",
+        "NO"
+    ],
+    "package_dist_dir_type": [
+        "Relative",
+        "Absolute"
+    ],
+    "package_dist_dir": "../../package/dist",
+    "aws_terraform_modules": {
+        "modules": {
+            "dynomodb": "",
+            "ec2": "",
+            "lambda": "",
+            "s3": ""
+        }
+    },
+    "aws_terraform_vars": {
+        "vars": {
+            "General": {
+                "region": "eu-central-1"
+            },
+            "ec2": {
+                "instance_type": "t2.nano",
+                "ami": "ami-049df61146f897901",
+                "vpc_security_group": "sg-049df61146f897901",
+                "subnet_id": "subnet-049df61146f897901",
+                "associate_public_ip": true,
+                "key_name": "my-key-pair",
+                "ec2_tags": "my-project-name"
+            },
+            "lambda": {},
+            "S3": {
+                "bucket_name": "my-bucket",
+                "s3_tags": "my-project-name"
+            },
+            "DynomoDB": {
+                "table_name": "my-table-name",
+                "billing_mode": "PROVISIONED",
+                "read_capacity": 5,
+                "write_capacity": 5,
+                "attribute": [
+                    {
+                        "name": "id",
+                        "type": "S"
+                    },
+                    {
+                        "name": "name",
+                        "type": "S"
+                    }
+                ],
+                "key_schema": [
+                    {
+                        "attribute_name": "id",
+                        "key_type": "HASH"
+                    }
+                ]
+            }
+        }
+    },
+    "_copy_without_render": [],
+    "_extensions": [
+        "jinja2_ansible_filters.AnsibleCoreFiltersExtension"
+    ]
+}

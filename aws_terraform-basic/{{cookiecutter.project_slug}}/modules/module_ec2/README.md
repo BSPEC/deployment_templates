@@ -12,6 +12,7 @@ To use this module in your Terraform configuration, add the following code:
 module "ec2_instance" {
   source = "./module_ec2"
 
+  region              = var.region
   instance_type       = var.instance_type
   ami                 = var.ami
   vpc_security_group  = var.vpc_security_group
@@ -27,6 +28,7 @@ Replace the values of the variables with your own values, and make sure to set u
 
 # Inputs
 The following inputs are required:
+`region`: The AWS region to use.
 `instance_type`: The EC2 instance type to use.
 `ami`: The ID of the Amazon Machine Image (AMI) to use.
 `vpc_security_group`: The ID of the VPC security group to use.

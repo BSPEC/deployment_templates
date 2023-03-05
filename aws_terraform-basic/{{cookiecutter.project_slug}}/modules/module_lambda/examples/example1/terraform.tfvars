@@ -1,0 +1,7 @@
+region                = "eu-central-1"
+function_name         = "my-lambda-function"
+handler               = "handler"
+runtime               = "python3.9"
+filename              = "lambda_function.py "
+environment_variables = ""
+iam_role_name         = "lambda_function_iam"
