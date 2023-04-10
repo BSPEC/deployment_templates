@@ -16,55 +16,75 @@
     ],
     "package_dist_dir": "../../package/dist",
     "aws_terraform_modules": {
-        "modules": {
-            "dynomodb": "",
-            "ec2": "",
-            "lambda": "",
-            "s3": ""
-        }
-    },
-    "aws_terraform_vars": {
-        "vars": {
-            "General": {
-                "region": "eu-central-1"
+        "modules": [
+            {
+                "module_name": "my_dynamodb_module",
+                "module_type": "dynamodb",
+                "vars": {
+                    "region": "eu-central-1",
+                    "table_name": "my-table-name",
+                    "billing_mode": "PROVISIONED",
+                    "read_capacity": 5,
+                    "write_capacity": 5,
+                    "attribute": [
+                        {
+                            "name": "id",
+                            "type": "S"
+                        },
+                        {
+                            "name": "name",
+                            "type": "S"
+                        }
+                    ],
+                    "key_schema": [
+                        {
+                            "attribute_name": "id",
+                            "key_type": "HASH"
+                        }
+                    ]
+                }
             },
-            "ec2": {
-                "instance_type": "t2.nano",
-                "ami": "ami-049df61146f897901",
-                "vpc_security_group": "sg-049df61146f897901",
-                "subnet_id": "subnet-049df61146f897901",
-                "associate_public_ip": true,
-                "key_name": "my-key-pair",
-                "ec2_tags": "my-project-name"
+            {
+                "module_name": "my_ec2_module",
+                "module_type": "ec2",
+                "vars": {
+                    "region": "eu-central-1",
+                    "instance_type": "t2.nano",
+                    "ami": "ami-049df61146f897901",
+                    "vpc_security_group": "sg-049df61146f897901",
+                    "subnet_id": "subnet-049df61146f897901",
+                    "associate_public_ip": true,
+                    "key_name": "my-key-pair",
+                    "user_data": "./userdata.sh",
+                    "ec2_tags": "my-project-name"
+                }
             },
-            "lambda": {},
-            "S3": {
-                "bucket_name": "my-bucket",
-                "s3_tags": "my-project-name"
-            },
-            "DynomoDB": {
-                "table_name": "my-table-name",
-                "billing_mode": "PROVISIONED",
-                "read_capacity": 5,
-                "write_capacity": 5,
-                "attribute": [
-                    {
-                        "name": "id",
-                        "type": "S"
+            {
+                "module_name": "my_lambda_module",
+                "module_type": "lambda",
+                "vars": {
+                    "region": "eu-central-1",
+                    "function_name": "my-lambda-function",
+                    "handler": "handler",
+                    "runtime": "python3.9",
+                    "filename": "lambda_function.py",
+                    "environment_variables": {
+                        "MY_VAR1": "value1",
+                        "MY_VAR2": "value2",
+                        "MY_VAR3": "value3"
                     },
-                    {
-                        "name": "name",
-                        "type": "S"
-                    }
-                ],
-                "key_schema": [
-                    {
-                        "attribute_name": "id",
-                        "key_type": "HASH"
-                    }
-                ]
+                    "iam_role_name": "lambda_function_iam"
+                }
+            },
+            {
+                "module_name": "my_s3_module",
+                "module_type": "s3",
+                "vars": {
+                    "bucket_name": "my-bucket",
+                    "s3_tags": "my-project-name"
+                }
             }
-        }
+        ]
     },
     "_copy_without_render": [],
     "_extensions": [

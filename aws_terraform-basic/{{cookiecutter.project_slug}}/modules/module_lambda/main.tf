@@ -3,7 +3,7 @@ provider "aws" {
   region  = var.region
 }
 
-resource "aws_iam_role" "example" {
+resource "aws_iam_role" "lambda_function_iam_role" {
   name = var.iam_role_name
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -20,7 +20,7 @@ resource "aws_iam_role" "example" {
   })
 }
 
-resource "aws_lambda_function" "example" {
+resource "aws_lambda_function" "lambda_function" {
   function_name = var.function_name
   handler       = var.handler
   runtime       = var.runtime

@@ -5,7 +5,7 @@ variable "region" {
 
 variable "function_name" {
   type        = string
-  description = "The file nameof the function to run"
+  description = "The file name of the function to run"
 }
 
 variable "handler" {

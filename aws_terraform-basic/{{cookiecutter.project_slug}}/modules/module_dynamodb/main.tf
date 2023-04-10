@@ -11,10 +11,5 @@ resource "aws_dynamodb_table" "table" {
 
   attribute = var.attribute
 
-  key_schema = [
-    {
-      attribute_name = "id"
-      key_type       = "HASH"
-    },
-  ]
+  key_schema = var.key_schema
 }

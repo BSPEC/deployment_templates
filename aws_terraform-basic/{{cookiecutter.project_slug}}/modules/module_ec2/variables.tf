@@ -31,6 +31,7 @@ variable "key_name" {
 variable "user_data" {
   type        = string
   description = "The user data to pass to the EC2 instance during launch"
+  default     = "./userdata.sh"
 }
 
 variable "region" {
